@@ -9,10 +9,10 @@ OUTDIR=out
 all: $(TARGET)
 
 simple3: simple3.c print.h libPrint.so
-	cc $(CFLAGS) simple3.c -L. -lPrint -o $(TARGET)
+	cc $(CFLAGS) simple3.c -I. -L. -lPrint -o $(TARGET) -ggdb -g
 
 libPrint.so: print.c print.h
-	cc $(CFLAGS) print.c -shared -fPIC -o libPrint.so
+	cc $(CFLAGS) print.c -shared -fPIC -o libPrint.so -ggdb -g
 
 clean: 
 	rm -f $(TARGET) libPrint.so *.o 2>/dev/null
