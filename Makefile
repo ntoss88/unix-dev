@@ -2,6 +2,8 @@ CFLAGS=-Wall
 TARGET=simple3
 PREFIX=/usr/local
 
+OUTDIR=out
+
 .PHONY: all clean install uninstall
 
 all: $(TARGET)
@@ -13,7 +15,7 @@ libPrint.so: print.c print.h
 	cc $(CFLAGS) print.c -shared -fPIC -o libPrint.so
 
 clean: 
-	-rm -f $(TARGET) libPrint.so *.o 2>/dev/null
+	rm -f $(TARGET) libPrint.so *.o 2>/dev/null
 
 install:
 	install $(TARGET) $(PREFIX)/bin
